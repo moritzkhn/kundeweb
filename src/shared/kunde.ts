@@ -33,9 +33,11 @@ export interface Kunde {
     interessen: InteressenType[] | undefined;
     umsatz: Umsatz | null;
     adresse: Adresse;
+    /*
     userName:string;
     erzeugt:  Temporal.PlainDate; //TODO aktuelles Daatum + Zeit
     aktualisiert: Temporal.PlainDate;  //TODO aktuelles Daatum + Zeit
+    */
 }
 
 /**
@@ -48,13 +50,10 @@ export interface Kunde {
 export interface KundeShared {
     nachname: string;
     email: string;
-    kategorie: number | 0;
     newsletter: boolean | false;
-    geburtsdatum: Temporal.PlainDate | undefined;
     homepage: string| null;
     geschlecht:GeschlechtType | undefined;
     familienstand:Familienstand | null;
-    interessen: InteressenType[] | undefined;
     umsatz: Umsatz | null;
     adresse: Adresse;
     userName:string;
