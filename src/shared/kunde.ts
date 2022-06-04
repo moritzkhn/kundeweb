@@ -5,7 +5,16 @@ export type GeschlechtType = 'M'| 'W';
 export type Familienstand = 'L' | 'VH'|'G'|'VM';
 
 export type InteressenType = 'S' | 'L'| 'R';
-
+export interface Umsatz {
+  id?:string | null;
+  betrag: number;
+  waehrung: string;
+}
+export interface Adresse{
+    id?:string|null;
+    plz:string|'';
+    ort:string|'';
+}
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
@@ -15,24 +24,18 @@ export interface Kunde {
     version?: number;
     nachname: string;
     email: string;
-    //TODO hier mit | undefined oder 0 --> mit Zahlen etc
     kategorie: number | 0;
     newsletter: boolean | false;
     geburtsdatum: Temporal.PlainDate | undefined;
-    // TODO Url als type nicht vorhanden --> deshalb string
-    homepage: string| undefined;
+    homepage: string| null;
     geschlecht:GeschlechtType | undefined;
-    familienstand:Familienstand | undefined;
+    familienstand:Familienstand | null;
     interessen: InteressenType[] | undefined;
-    // TODO Umsatz hat id, betrag und währung --> In neue Klasse umschreiben
-    umsatz: number| undefined;
-    // TODO adresse hat PLZ und Ort
-    adresse: string;
+    umsatz: Umsatz | null;
+    adresse: Adresse;
     userName:string;
-    //TODO brauche ich erzeigt und aktualisiert
-
-
-
+    erzeugt:  Temporal.PlainDate; //TODO aktuelles Daatum + Zeit
+    aktualisiert: Temporal.PlainDate;  //TODO aktuelles Daatum + Zeit
 }
 
 /**
@@ -42,16 +45,17 @@ export interface Kunde {
  * - BuchServer für BuchReadService
  * - BuchForm für CreateBuchComponent
  */
-export interface BuchShared {
+export interface KundeShared {
     nachname: string;
     email: string;
     kategorie: number | 0;
     newsletter: boolean | false;
     geburtsdatum: Temporal.PlainDate | undefined;
-    homepage: string| undefined;
+    homepage: string| null;
     geschlecht:GeschlechtType | undefined;
-    familienstand:Familienstand | undefined;
+    familienstand:Familienstand | null;
     interessen: InteressenType[] | undefined;
-    umsatz: number| undefined;
-    adresse: string;
+    umsatz: Umsatz | null;
+    adresse: Adresse;
+    userName:string;
 }
