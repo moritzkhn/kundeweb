@@ -24,7 +24,7 @@ export interface Kunde {
     version?: number;
     nachname: string;
     email: string;
-    kategorie: number | 0;
+    kategorie: number | undefined;
     newsletter: boolean | false;
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: string| null;
@@ -56,5 +56,4 @@ export interface KundeShared {
     familienstand:Familienstand | null;
     umsatz: Umsatz | null;
     adresse: Adresse;
-    userName:string;
 }
