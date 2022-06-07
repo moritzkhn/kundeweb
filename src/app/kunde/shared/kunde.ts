@@ -1,10 +1,10 @@
 import { type Temporal } from '@js-temporal/polyfill';
 
-export type GeschlechtType = 'M'| 'W';
+export type GeschlechtType = 'MAENNLICH'| 'WEIBLICH' | 'DIVERS';
 
-export type Familienstand = 'L' | 'VH'|'G'|'VM';
+export type FamilienstandType = 'LEDIG' | 'VERHEIRATET'|'GESCHIEDEN'|'VERWITWET';
 
-export type InteressenType = 'S' | 'L'| 'R';
+export type InteressenType = 'SPORT' | 'LESEN'| 'REISEN';
 export interface Umsatz {
   id?:string | null;
   betrag: number;
@@ -29,7 +29,7 @@ export interface Kunde {
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: string| null;
     geschlecht:GeschlechtType | undefined;
-    familienstand:Familienstand | null;
+    familienstand:FamilienstandType | null;
     interessen: InteressenType[] | undefined;
     umsatz: Umsatz | null;
     adresse: Adresse;
@@ -53,7 +53,7 @@ export interface KundeShared {
     newsletter: boolean | false;
     homepage: string| null;
     geschlecht:GeschlechtType | undefined;
-    familienstand:Familienstand | null;
+    familienstand:FamilienstandType | null;
     umsatz: Umsatz | null;
     adresse: Adresse;
 }

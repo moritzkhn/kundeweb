@@ -20,7 +20,7 @@ export {
     type KundeShared,
     type Geschlecht,
     type Kategorie,
-    type Familienstand,
+    type FamilienstandType,
 } from './kunde';
 export {
     KundeReadService,

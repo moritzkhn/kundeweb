@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Kunde, type GeschlechtType, type Familienstand, type InteressenType } from './kunde';
+import { type Kunde, type GeschlechtType, type FamilienstandType, type InteressenType } from './kunde';
 import { type KundeServer, toKunde } from './kundeServer';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
