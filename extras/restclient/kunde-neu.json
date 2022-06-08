@@ -1,0 +1,22 @@
+{
+  "nachname": "Testneu",
+  "email": "Testneu@Test.de",
+  "kategorie": 1,
+  "newsletter": true,
+  "geburtsdatum": "2022-02-02",
+  "umsatz": {
+    "betrag": 0,
+    "waehrung": "EUR"
+  },
+  "homepage": "https://www.test.de",
+  "geschlecht": "WEIBLICH",
+  "familienstand": "LEDIG",
+  "interessen": [
+    "REISEN",
+    "LESEN"
+  ],
+  "adresse": {
+    "plz": "12345",
+    "ort": "Testort"
+  }
+}
