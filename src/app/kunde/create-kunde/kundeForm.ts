@@ -30,6 +30,7 @@ export const toKunde = (kundeForm: KundeForm) => {
     kategorie,
     newsletter,
     geburtsdatum,
+    interessen,
     homepage,
     geschlecht,
     familienstand,
@@ -46,15 +47,7 @@ export const toKunde = (kundeForm: KundeForm) => {
     geburtsdatum.getMonth() + 1,
     geburtsdatum.getDate()
   );
-  log.debug("toKunde: datumTemporal=", geburtsdatumTemporal);
-
-  const interessen: string[] = [];
-  if (javascript) {
-    interessen.push("JAVASCRIPT");
-  }
-  if (typescript) {
-    interessen.push("TYPESCRIPT");
-  }
+  log.debug("toKunde: geburtsdatumTemporal=", geburtsdatumTemporal);
 
   const kunde: Kunde = {
     nachname: nachname ?? "unbekannt",
@@ -65,7 +58,6 @@ export const toKunde = (kundeForm: KundeForm) => {
     homepage,
     geschlecht,
     familienstand,
-    // TODO Wie geht man hier vor Interessen vom Type InteressenType nicht string []
     interessen,
     umsatz,
     adresse,

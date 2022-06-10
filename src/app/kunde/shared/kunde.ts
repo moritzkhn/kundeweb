@@ -25,16 +25,16 @@ export interface Kunde {
     nachname: string;
     email: string;
     kategorie: number | undefined;
-    newsletter: boolean | false;
+    newsletter: boolean | undefined;
     geburtsdatum: Temporal.PlainDate | undefined;
-    homepage: string| null;
+    homepage: string| undefined;
     geschlecht:GeschlechtType | undefined;
     familienstand:FamilienstandType | null;
-    interessen: InteressenType[] | undefined;
+    interessen: Set<InteressenType>;
     umsatz: Umsatz | null;
     adresse: Adresse;
-    /*
-    userName:string;
+       /*
+    userName: string;
     erzeugt:  Temporal.PlainDate; //TODO aktuelles Daatum + Zeit
     aktualisiert: Temporal.PlainDate;  //TODO aktuelles Daatum + Zeit
     */
@@ -50,8 +50,9 @@ export interface Kunde {
 export interface KundeShared {
     nachname: string;
     email: string;
-    newsletter: boolean | false;
-    homepage: string| null;
+    newsletter?: boolean;
+    homepage?: string| undefined;
+    interessen: Set<InteressenType>; 
     geschlecht:GeschlechtType | undefined;
     familienstand:FamilienstandType | null;
     umsatz: Umsatz | null;
