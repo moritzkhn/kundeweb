@@ -1,0 +1,24 @@
+{
+  "_id": "00000000-0000-0000-0000-000000000003",
+  "nachname": "?!%",
+  "email": "email",
+  "kategorie" : 11,
+  "newsletter": true,
+  "geburtsdatum": "3000-01-31",
+  "umsatz": {
+      "betrag": 0,
+      "waehrung": "EUR"
+  },
+  "homepage": "anyhomepage",
+  "geschlecht": "WEIBLICH",
+  "familienstand": "LEDIG",
+  "interessen": [
+      "REISEN",
+      "LESEN",
+      "LESEN"
+  ],
+  "adresse": {
+      "plz": "1",
+      "ort": "???"
+  }
+}
