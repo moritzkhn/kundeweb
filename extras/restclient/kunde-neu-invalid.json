@@ -1,0 +1,23 @@
+{
+  "nachname": "?!$",
+    "email": "email",
+    "kategorie": 11,
+    "newsletter": true,
+    "geburtsdatum": "3000-01-31",
+    "umsatz": {
+      "betrag": 0,
+      "waehrung": "EUR"
+    },
+    "homepage": "https://www.test.de",
+    "geschlecht": "WEIBLICH",
+    "familienstand": "LEDIG",
+    "interessen": [
+      "REISEN",
+      "LESEN",
+      "LESEN"
+    ],
+    "adresse": {
+      "plz": "1234",
+      "ort": "Testort"
+    }
+}
