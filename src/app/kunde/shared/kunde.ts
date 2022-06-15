@@ -50,6 +50,7 @@ export interface Kunde {
 export interface KundeShared {
     nachname: string;
     email: string;
+    kategorie: number | undefined
     newsletter?: boolean;
     homepage?: string| undefined;
     interessen: Set<InteressenType>; 

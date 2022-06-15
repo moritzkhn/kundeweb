@@ -10,10 +10,7 @@ import log from "loglevel";
  * </ul>
  */
 export interface KundeForm extends KundeShared {
-  kategorie: string;
   geburtsdatum: Date;
-  javascript: boolean;
-  typescript: boolean;
 }
 
 /**
@@ -36,8 +33,6 @@ export const toKunde = (kundeForm: KundeForm) => {
     familienstand,
     umsatz,
     adresse,
-    javascript,
-    typescript,
   } = kundeForm;
 
   const kategorieNumber = Number(kategorie);
