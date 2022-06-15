@@ -1,0 +1,31 @@
+<div class="row">
+    <label for="idInput" class="col col-2 col-form-label gy-3"> ID * </label>
+    <div class="col col-10 gy-3" [formGroup]="createForm">
+      <div class="input-group">
+        <input
+          id="idInput"
+          placeholder="ID-Nummer, z.B. ???????ß"
+          class="form-control"
+          required
+          minlength="2"
+          formControlName="id"
+          [class.is-invalid]="id.invalid && id.touched"
+          [class.is-valid]="id.valid && id.touched"
+        />
+  
+        <div
+          class="invalid-feedback"
+          *ngIf="id.invalid && id.touched && id.errors"
+        >
+          <i class="material-icons">error</i>
+          <span
+            class="ms-1"
+            *ngIf="id.errors['required'] || id.errors['pattern']"
+          >
+            Eine gültige ID-Nummer, z.B. ???, muss eingegeben
+            werden.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
