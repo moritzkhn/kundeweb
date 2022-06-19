@@ -63,7 +63,7 @@
           </td>
           <td (click)="onClick(kunde)">
             <span *ngFor="let interesse of kunde.interessen">
-              <span [ngSwitch]="interesse>
+              <span [ngSwitch]="interesse">
                 <span *ngSwitchCase="'SPORT'"> Sport<br /> </span>
                 <span *ngSwitchCase="'LESEN'"> Lesen </span>
                 <span *ngSwitchCase="'REISEN'"> Reisen </span>
