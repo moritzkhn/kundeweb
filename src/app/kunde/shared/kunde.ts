@@ -34,7 +34,7 @@ export interface Kunde {
     homepage: string | undefined;
     geschlecht: GeschlechtType | undefined;
     familienstand: FamilienstandType | null;
-    interessen: Set<InteressenType>;
+    interessen: InteressenType | undefined;
     umsatz: Umsatz | null;
     adresse: Adresse;
     /*
@@ -54,10 +54,10 @@ export interface Kunde {
 export interface KundeShared {
     nachname: string;
     email: string;
-    kategorie: number | undefined;
+    kategorie?: number | undefined;
     newsletter?: boolean;
     homepage?: string | undefined;
-    interessen: Set<InteressenType>;
+    interessen?: InteressenType | undefined;
     geschlecht: GeschlechtType | undefined;
     familienstand: FamilienstandType | null;
     umsatz: Umsatz | null;

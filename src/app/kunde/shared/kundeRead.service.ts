@@ -42,7 +42,7 @@ export interface Suchkriterien {
     schlagwoerter: { javascript: boolean; typescript: boolean };
 }
 
-export interface KundeServer {
+export interface KundenServer {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _embedded: {
         kunden: KundeServer[];
@@ -118,7 +118,7 @@ export class KundeReadService {
 
         return (
             this.httpClient
-                .get<KundeServer>(url, { params })
+                .get<KundenServer>(url, { params })
 
                 // pipe ist eine "pure" Funktion, die ein Observable in ein NEUES Observable transformiert
                 .pipe(
@@ -143,7 +143,7 @@ export class KundeReadService {
     }
 
     #toKundeArrayOrError(
-        restResult: KundeServer | FindError,
+        restResult: KundenServer | FindError,
     ): Kunde[] | FindError {
         log.debug(
             'KundeReadService.#toKundeArrayOrError: restResult=',
