@@ -57,7 +57,7 @@ export interface KundeShared {
   kategorie?: number | undefined;
   newsletter?: boolean;
   homepage?: string | undefined;
-  interessen: InteressenType| undefined;
+  interessen?: InteressenType| undefined;
   geschlecht: GeschlechtType | undefined;
   familienstand: FamilienstandType | null;
   umsatz: Umsatz | null;
