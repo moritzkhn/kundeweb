@@ -18,13 +18,13 @@
 export {
     type Kunde,
     type KundeShared,
-    type Geschlecht,
-    type Kategorie,
+    type GeschlechtType,
+    type InteressenType,
     type FamilienstandType,
 } from './kunde';
 export {
     KundeReadService,
-    type KundenServer,
+    type KundeServer,
     type Suchkriterien,
 } from './kundeRead.service';
 export { KundeWriteService } from './kundeWrite.service';

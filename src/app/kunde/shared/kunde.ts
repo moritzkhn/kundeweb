@@ -1,19 +1,23 @@
 import { type Temporal } from '@js-temporal/polyfill';
 
-export type GeschlechtType = 'MAENNLICH'| 'WEIBLICH' | 'DIVERS';
+export type GeschlechtType = 'MAENNLICH' | 'WEIBLICH' | 'DIVERS';
 
-export type FamilienstandType = 'LEDIG' | 'VERHEIRATET'|'GESCHIEDEN'|'VERWITWET';
+export type FamilienstandType =
+    | 'LEDIG'
+    | 'VERHEIRATET'
+    | 'GESCHIEDEN'
+    | 'VERWITWET';
 
-export type InteressenType = 'SPORT' | 'LESEN'| 'REISEN';
+export type InteressenType = 'SPORT' | 'LESEN' | 'REISEN';
 export interface Umsatz {
-  id?:string | null;
-  betrag: number;
-  waehrung: string;
+    id?: string | null;
+    betrag: number;
+    waehrung: string;
 }
-export interface Adresse{
-    id?:string|null;
-    plz:string|'';
-    ort:string|'';
+export interface Adresse {
+    id?: string | null;
+    plz: string | '';
+    ort: string | '';
 }
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
@@ -27,13 +31,13 @@ export interface Kunde {
     kategorie: number | undefined;
     newsletter: boolean | undefined;
     geburtsdatum: Temporal.PlainDate | undefined;
-    homepage: string| undefined;
-    geschlecht:GeschlechtType | undefined;
-    familienstand:FamilienstandType | null;
+    homepage: string | undefined;
+    geschlecht: GeschlechtType | undefined;
+    familienstand: FamilienstandType | null;
     interessen: Set<InteressenType>;
     umsatz: Umsatz | null;
     adresse: Adresse;
-       /*
+    /*
     userName: string;
     erzeugt:  Temporal.PlainDate; //TODO aktuelles Daatum + Zeit
     aktualisiert: Temporal.PlainDate;  //TODO aktuelles Daatum + Zeit
@@ -50,12 +54,12 @@ export interface Kunde {
 export interface KundeShared {
     nachname: string;
     email: string;
-    kategorie: number | undefined
+    kategorie: number | undefined;
     newsletter?: boolean;
-    homepage?: string| undefined;
-    interessen: Set<InteressenType>; 
-    geschlecht:GeschlechtType | undefined;
-    familienstand:FamilienstandType | null;
+    homepage?: string | undefined;
+    interessen: Set<InteressenType>;
+    geschlecht: GeschlechtType | undefined;
+    familienstand: FamilienstandType | null;
     umsatz: Umsatz | null;
     adresse: Adresse;
 }

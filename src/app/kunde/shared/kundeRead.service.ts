@@ -14,7 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { type Kunde, type GeschlechtType, type FamilienstandType, type InteressenType } from './kunde';
+import {
+    type Kunde,
+    type GeschlechtType,
+    type FamilienstandType,
+    type InteressenType,
+} from './kunde';
 import { type KundeServer, toKunde } from './kundeServer';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
@@ -37,7 +42,7 @@ export interface Suchkriterien {
     schlagwoerter: { javascript: boolean; typescript: boolean };
 }
 
-export interface KundenServer {
+export interface KundeServer {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _embedded: {
         kunden: KundeServer[];
@@ -138,7 +143,7 @@ export class KundeReadService {
     }
 
     #toKundeArrayOrError(
-        restResult: KundenServer | FindError,
+        restResult: KundeServer | FindError,
     ): Kunde[] | FindError {
         log.debug(
             'KundeReadService.#toKundeArrayOrError: restResult=',
@@ -232,7 +237,8 @@ export class KundeReadService {
             return httpParams;
         }
 
-        const { nachname, kategorie, geburtsdatum, schlagwoerter } = suchkriterien;
+        const { nachname, kategorie, geburtsdatum, schlagwoerter } =
+            suchkriterien;
         const { javascript, typescript } = schlagwoerter;
 
         if (nachname !== '') {

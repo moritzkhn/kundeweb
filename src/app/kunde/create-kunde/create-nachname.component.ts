@@ -6,7 +6,7 @@ import log from 'loglevel';
  * Komponente mit dem Tag hs-create-nachname, um das Erfassungsformular
  * für einen neuen Kunden zu realisieren.
  */
- @Component({
+@Component({
     selector: 'hs-create-nachname',
     templateUrl: './create-nachname.component.html',
 })

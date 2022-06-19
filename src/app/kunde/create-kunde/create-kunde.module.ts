@@ -21,14 +21,10 @@ import { CreateNachnameComponent } from './create-nachname.component';
 import { CreateEmailComponent } from './create-email.component';
 import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNewsletterComponent } from './create-newsletter.component';
-import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
-import { CreateHomepageComponent } from './create-homepage.component';
 import { CreateGeschlechtComponent } from './create-geschlecht.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
 import { CreateInteressenComponent } from './create-interessen.component';
-import { CreateUmsatzComponent } from './create-umsatz.component';
-import { CreateAdresseComponent } from './create-adresse.component';
-import { CreateUsernameComponent } from './create-username.component';
+import { CreateBetragComponent } from './create-betrag.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { Title } from '@angular/platform-browser';
@@ -37,7 +33,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 // Ein Modul enthaelt logisch zusammengehoerige Funktionalitaet.
 // Exportierte Komponenten koennen bei einem importierenden Modul in dessen
 // Komponenten innerhalb deren Templates (= HTML-Fragmente) genutzt werden.
-// BuchModule ist ein "FeatureModule", das Features fuer Buecher bereitstellt
+// KundeModule ist ein "FeatureModule", das Features fuer Buecher bereitstellt
 @NgModule({
     imports: [
         CalendarModule.forRoot({
@@ -51,16 +47,12 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
         CreateKundeComponent,
         CreateEmailComponent,
         CreateKategorieComponent,
-        CreateGeburtsdatumComponent,
         CreateNewsletterComponent,
-        CreateHomepageComponent,
         CreateInteressenComponent,
         CreateGeschlechtComponent,
         CreateFamilienstandComponent,
-        CreateUmsatzComponent,
-        CreateAdresseComponent,
-        CreateUsernameComponent
+        CreateBetragComponent,
     ],
     providers: [Title],
 })
-export class CreateBuchModule {}
+export class CreateKundeModule {}

@@ -21,12 +21,12 @@ import { toKundeServer } from './kundeServer';
 @Injectable({ providedIn: 'root' })
 export class KundeWriteService {
     readonly #baseUrl = paths.api;
-    
+
     /**
      * @param httpClient injizierter Service HttpClient (von Angular)
      * @return void
      */
-     constructor(private readonly httpClient: HttpClient) {
+    constructor(private readonly httpClient: HttpClient) {
         log.debug('KundeWriteService.constructor: baseUrl=', this.#baseUrl);
     }
 
@@ -91,7 +91,7 @@ export class KundeWriteService {
      * Ein vorhandenen Kunden aktualisieren
      * @param kunde Das JSON-Objekt mit den aktualisierten Kundedaten
      */
-     update(kunde: Kunde): Observable<Kunde | UpdateError> {
+    update(kunde: Kunde): Observable<Kunde | UpdateError> {
         log.debug('KundeWriteService.update: kunde=', kunde);
 
         // id, version und schlagwoerter gehoeren nicht zu den serverseitigen Nutzdaten
