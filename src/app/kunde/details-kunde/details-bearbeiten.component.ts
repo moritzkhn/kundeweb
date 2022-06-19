@@ -15,21 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component, Input, type OnInit } from '@angular/core';
-import log from 'loglevel';
+import { Component, Input, type OnInit } from "@angular/core";
+import log from "loglevel";
 
 /**
  * Komponente f&uuml;r das Tag <code>hs-details-bearbeiten</code>
  */
 @Component({
-    selector: 'hs-details-bearbeiten',
-    templateUrl: './details-bearbeiten.component.html',
+  selector: "hs-details-bearbeiten",
+  templateUrl: "./details-bearbeiten.component.html",
 })
 export class DetailsBearbeitenComponent implements OnInit {
-    @Input()
-    id: string | undefined;
+  @Input()
+  id: string | undefined;
 
-    ngOnInit() {
-        log.debug('DetailsBearbeitenComponent.id=', this.id);
-    }
+  ngOnInit() {
+    log.debug("DetailsBearbeitenComponent.id=", this.id);
+  }
 }

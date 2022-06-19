@@ -18,7 +18,7 @@ interface Link {
 export interface KundeServer extends KundeShared {
   kategorie?: number;
   geburtsdatum?: string;
-  interessen?: InteressenType[];
+  interessen?:Set<InteressenType>;
   // eslint-disable-next-line @typescript-eslint/naming-convention
   _links?: {
     self: Link;
@@ -122,6 +122,6 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
     familienstand: kunde.familienstand,
     interessen: kunde.interessen,
     umsatz: kunde.umsatz,
-    adresse: kunde.adresse
+    adresse: kunde.adresse,
   };
 };

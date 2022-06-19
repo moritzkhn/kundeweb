@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { FooterComponent } from './footer.component';
-import { NgModule } from '@angular/core';
+import { FooterComponent } from "./footer.component";
+import { NgModule } from "@angular/core";
 
 @NgModule({
-    declarations: [FooterComponent],
-    exports: [FooterComponent],
+  declarations: [FooterComponent],
+  exports: [FooterComponent],
 })
 export class FooterModule {}

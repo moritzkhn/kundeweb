@@ -47,7 +47,7 @@ export const toKunde = (kundeForm: KundeForm) => {
   const kunde: Kunde = {
     nachname: nachname ?? "unbekannt",
     email,
-    kategorie :kategorieNumber,
+    kategorie: kategorieNumber,
     newsletter,
     geburtsdatum: geburtsdatumTemporal,
     homepage,

@@ -29,7 +29,7 @@
  * @return Der mit Base64 codierte String.
  */
 export const toBase64 = (username: string, password: string) =>
-    window.btoa(`${username}:${password}`);
+  window.btoa(`${username}:${password}`);
 
 // In Angular durch Pipes wie z.B. currency oder percent
 // export const toEuro = (value: number) => {

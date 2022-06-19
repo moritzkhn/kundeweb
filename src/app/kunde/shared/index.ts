@@ -16,16 +16,16 @@
  */
 
 export {
-    type Kunde,
-    type KundeShared,
-    type Geschlecht,
-    type Kategorie,
-    type FamilienstandType,
-} from './kunde';
+  type Kunde,
+  type KundeShared,
+  type Geschlecht,
+  type Kategorie,
+  type FamilienstandType,
+} from "./kunde";
 export {
-    KundeReadService,
-    type KundenServer,
-    type Suchkriterien,
-} from './kundeRead.service';
-export { KundeWriteService } from './kundeWrite.service';
-export { FindError, SaveError, UpdateError, RemoveError } from './errors';
+  KundeReadService,
+  type KundenServer,
+  type Suchkriterien,
+} from "./kundeRead.service";
+export { KundeWriteService } from "./kundeWrite.service";
+export { FindError, SaveError, UpdateError, RemoveError } from "./errors";

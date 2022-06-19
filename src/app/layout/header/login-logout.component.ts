@@ -15,74 +15,68 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component, type OnInit } from '@angular/core';
-import { AuthService } from '../../auth/auth.service';
-import { Subject } from 'rxjs';
-import { Router } from '@angular/router';
-import log from 'loglevel';
+import { Component, type OnInit } from "@angular/core";
+import { AuthService } from "../../auth/auth.service";
+import { Subject } from "rxjs";
+import { Router } from "@angular/router";
+import log from "loglevel";
 
 /**
  * Komponente f&uuml;r das Login mit dem Tag &lt;hs-login-logout&gt;.
  */
 @Component({
-    selector: 'hs-login-logout',
-    templateUrl: './login-logout.component.html',
+  selector: "hs-login-logout",
+  templateUrl: "./login-logout.component.html",
 })
 export class LoginLogoutComponent implements OnInit {
-    username: string | undefined;
-    password: string | undefined;
+  username: string | undefined;
+  password: string | undefined;
 
-    // Observable.subscribe() aus RxJS liefert ein Subscription Objekt,
-    // mit dem man den Request auch abbrechen ("cancel") kann
-    // https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribe.md
-    // http://stackoverflow.com/questions/34533197/what-is-the-difference-between-rx-observable-subscribe-and-foreach
-    // https://xgrommx.github.io/rx-book/content/observable/observable_instance_methods/subscribe.html
-    // Funktion als Funktionsargument, d.h. Code als Daten uebergeben
-    // Suffix "$" wird als "Finnish Notation" bezeichnet https://medium.com/@benlesh/observables-and-finnish-notation-df8356ed1c9b
-    isLoggedIn$!: Subject<boolean>;
-    init!: boolean;
+  // Observable.subscribe() aus RxJS liefert ein Subscription Objekt,
+  // mit dem man den Request auch abbrechen ("cancel") kann
+  // https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribe.md
+  // http://stackoverflow.com/questions/34533197/what-is-the-difference-between-rx-observable-subscribe-and-foreach
+  // https://xgrommx.github.io/rx-book/content/observable/observable_instance_methods/subscribe.html
+  // Funktion als Funktionsargument, d.h. Code als Daten uebergeben
+  // Suffix "$" wird als "Finnish Notation" bezeichnet https://medium.com/@benlesh/observables-and-finnish-notation-df8356ed1c9b
+  isLoggedIn$!: Subject<boolean>;
+  init!: boolean;
 
-    constructor(
-        private readonly authService: AuthService,
-        private readonly router: Router,
-    ) {
-        log.debug('LoginLogoutComponent.constructor()');
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {
+    log.debug("LoginLogoutComponent.constructor()");
+  }
+
+  ngOnInit() {
+    log.debug("LoginLogoutComponent.ngOnInit: ", this.authService.isLoggedIn);
+
+    this.isLoggedIn$ = this.authService.isLoggedIn$;
+    this.isLoggedIn$.subscribe();
+
+    // Initialisierung, falls zwischenzeitlich der Browser geschlossen wurde
+    this.init = this.authService.isLoggedIn;
+  }
+
+  onLogin() {
+    log.debug("LoginLogoutComponent.onLogin()");
+    if (this.username === undefined || this.username === null) {
+      return;
     }
+    const loginResult = this.authService.login(this.username, this.password);
+    this.init = false;
+    return loginResult;
+  }
 
-    ngOnInit() {
-        log.debug(
-            'LoginLogoutComponent.ngOnInit: ',
-            this.authService.isLoggedIn,
-        );
-
-        this.isLoggedIn$ = this.authService.isLoggedIn$;
-        this.isLoggedIn$.subscribe();
-
-        // Initialisierung, falls zwischenzeitlich der Browser geschlossen wurde
-        this.init = this.authService.isLoggedIn;
-    }
-
-    onLogin() {
-        log.debug('LoginLogoutComponent.onLogin()');
-        if (this.username === undefined || this.username === null) {
-            return;
-        }
-        const loginResult = this.authService.login(
-            this.username,
-            this.password,
-        );
-        this.init = false;
-        return loginResult;
-    }
-
-    /**
-     * Ausloggen und dabei Benutzername und Passwort zur&uuml;cksetzen.
-     */
-    onLogout() {
-        log.debug('LoginLogoutComponent.onLogout()');
-        this.authService.logout();
-        this.init = false;
-        this.isLoggedIn$.next(false);
-        return this.router.navigate(['/']);
-    }
+  /**
+   * Ausloggen und dabei Benutzername und Passwort zur&uuml;cksetzen.
+   */
+  onLogout() {
+    log.debug("LoginLogoutComponent.onLogout()");
+    this.authService.logout();
+    this.init = false;
+    this.isLoggedIn$.next(false);
+    return this.router.navigate(["/"]);
+  }
 }

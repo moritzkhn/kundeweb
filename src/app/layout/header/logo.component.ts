@@ -15,18 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
-import log from 'loglevel';
+import { Component } from "@angular/core";
+import log from "loglevel";
 
 /**
  * Komponente f&uuml;r das Logo mit dem Tag &lt;hs-logo&gt;.
  */
 @Component({
-    selector: 'hs-logo',
-    templateUrl: './logo.component.html',
+  selector: "hs-logo",
+  templateUrl: "./logo.component.html",
 })
 export class LogoComponent {
-    constructor() {
-        log.debug('LogoComponent.constructor()');
-    }
+  constructor() {
+    log.debug("LogoComponent.constructor()");
+  }
 }

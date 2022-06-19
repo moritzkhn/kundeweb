@@ -16,9 +16,9 @@
  */
 
 // "core" enthaelt Funktionalitaet, damit die Webanwendung im Browser laeuft
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 // statt console.log(...)
-import log from 'loglevel';
+import log from "loglevel";
 
 // JIT (= Just-in-time) Compiler: Uebersetzung zur Laufzeit, d.h. dynamisch
 // AoT (= Ahead-of-Time) Compiler: statische Übersetzung fuehrt zu weniger Code bzw. kleinerem Bundle
@@ -54,64 +54,64 @@ import log from 'loglevel';
  * Wurzelkomponente mit dem Tag &lt;hs-root&gt;
  */
 @Component({
-    // Schnittstelle der View fuer Wiederverwendung in anderen Komponenten:
-    // durch das Tag <hs-app> in index.html, d.h. CSS-Selector wird spezifiziert
-    // Schreibweise innerhalb von HTML:         kebab-case
-    // Schreibweise innerhalb von TypeScript:   CamelCase
-    // Beispiel:
-    //   <hs-root>
-    //       <hs-header>
-    //           ...
-    //       </hs-header>
-    //       <hs-main>
-    //           <router-outlet>
-    //               <hs-suche-buecher>
-    //                   <hs-suchformular>
-    //                       ...
-    //                   </hs-suchformular>
-    //                   <hs-suchergebnis>
-    //                       ...
-    //                   </hs-suchergebnis>
-    //               </hs-suche-buecher>
-    //           <router-outlet>
-    //       </hs-main>
-    //   </hs-root>
-    selector: 'hs-root',
+  // Schnittstelle der View fuer Wiederverwendung in anderen Komponenten:
+  // durch das Tag <hs-app> in index.html, d.h. CSS-Selector wird spezifiziert
+  // Schreibweise innerhalb von HTML:         kebab-case
+  // Schreibweise innerhalb von TypeScript:   CamelCase
+  // Beispiel:
+  //   <hs-root>
+  //       <hs-header>
+  //           ...
+  //       </hs-header>
+  //       <hs-main>
+  //           <router-outlet>
+  //               <hs-suche-buecher>
+  //                   <hs-suchformular>
+  //                       ...
+  //                   </hs-suchformular>
+  //                   <hs-suchergebnis>
+  //                       ...
+  //                   </hs-suchergebnis>
+  //               </hs-suche-buecher>
+  //           <router-outlet>
+  //       </hs-main>
+  //   </hs-root>
+  selector: "hs-root",
 
-    // "template - A document or file having a preset format, used as a
-    // starting point for a particular application so that the format does not
-    // have to be recreated each time it is used."
-    // Siehe http://www.thefreedictionary.com/template
-    // HTML-Templates ~ View bei MVC: das Model referenzieren u. den Controller
-    // aufrufen.
-    // Multi-line Strings fuer kleine Inline-Templates.
-    // Vorteile:  alles auf einen Blick und keine separate HTML-Datei
-    // Nachteile: kein Syntax-Highlighting, kein Autovervollstaendigen
-    // VS Code soll kuenftig Syntax-Highlighting und IntelliSense koennen:
-    // https://github.com/angular/angular/blob/master/CHANGELOG.md#features-4
-    //
-    // Composed DOM: Der Baum und die Tags, die im Browser dargestellt werden
-    // Light DOM:    Der Baum, in den der Shadow-DOM eingefuegt wird,
-    //               z.B. <suche>
-    // Shadow DOM:   Der Baum, der innerhalb des Light DOM eingefuegt wird,
-    //               z.B. das Template aus SucheTitel.
-    //               Dieser Baum ist zunaechst vor dem Endbenutzer verborgen
-    // http://webcomponents.org/polyfills/shadow-dom
-    // http://w3c.github.io/webcomponents/spec/shadow
-    // https://github.com/angular/angular/issues/2529
-    templateUrl: './app.component.html',
+  // "template - A document or file having a preset format, used as a
+  // starting point for a particular application so that the format does not
+  // have to be recreated each time it is used."
+  // Siehe http://www.thefreedictionary.com/template
+  // HTML-Templates ~ View bei MVC: das Model referenzieren u. den Controller
+  // aufrufen.
+  // Multi-line Strings fuer kleine Inline-Templates.
+  // Vorteile:  alles auf einen Blick und keine separate HTML-Datei
+  // Nachteile: kein Syntax-Highlighting, kein Autovervollstaendigen
+  // VS Code soll kuenftig Syntax-Highlighting und IntelliSense koennen:
+  // https://github.com/angular/angular/blob/master/CHANGELOG.md#features-4
+  //
+  // Composed DOM: Der Baum und die Tags, die im Browser dargestellt werden
+  // Light DOM:    Der Baum, in den der Shadow-DOM eingefuegt wird,
+  //               z.B. <suche>
+  // Shadow DOM:   Der Baum, der innerhalb des Light DOM eingefuegt wird,
+  //               z.B. das Template aus SucheTitel.
+  //               Dieser Baum ist zunaechst vor dem Endbenutzer verborgen
+  // http://webcomponents.org/polyfills/shadow-dom
+  // http://w3c.github.io/webcomponents/spec/shadow
+  // https://github.com/angular/angular/issues/2529
+  templateUrl: "./app.component.html",
 
-    // ViewEncapsulation:
-    // Emulated (= default): Shadow DOM wird emuliert (hier: Shadow DOM v0),
-    //  d.h. CSS gilt nur fuer die Komponente selbst, nicht fuer die Kindkomponenten
-    //  wird auch von angular-fontawesome verwendet
-    // None: CSS gilt fuer die gesamte Webanwendung, d.h. <style> innerhalb von <head>
-    // ShadowDom: "shadow root" v1 verwenden, d.h. CSS auch fuer die Kindkomponenten
-    //  https://w3c.github.io/webcomponents/spec/shadow
-    //  https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
+  // ViewEncapsulation:
+  // Emulated (= default): Shadow DOM wird emuliert (hier: Shadow DOM v0),
+  //  d.h. CSS gilt nur fuer die Komponente selbst, nicht fuer die Kindkomponenten
+  //  wird auch von angular-fontawesome verwendet
+  // None: CSS gilt fuer die gesamte Webanwendung, d.h. <style> innerhalb von <head>
+  // ShadowDom: "shadow root" v1 verwenden, d.h. CSS auch fuer die Kindkomponenten
+  //  https://w3c.github.io/webcomponents/spec/shadow
+  //  https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
 
-    // https://github.com/angular/angular/issues/5059
-    // encapsulation: ViewEncapsulation.ShadowDom,
+  // https://github.com/angular/angular/issues/5059
+  // encapsulation: ViewEncapsulation.ShadowDom,
 })
 
 // Definitionsklasse ~ Controller: Eingabedaten entgegennehmen, Model fuer die
@@ -119,7 +119,7 @@ import log from 'loglevel';
 // z.B. onClick oder onSubmit
 // Die Doku zu Angular haengt immer noch den Suffix "Component" an die Klasse
 export class AppComponent {
-    constructor() {
-        log.debug('AppComponent.constructor()');
-    }
+  constructor() {
+    log.debug("AppComponent.constructor()");
+  }
 }

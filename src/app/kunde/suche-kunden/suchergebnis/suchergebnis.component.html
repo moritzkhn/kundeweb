@@ -1,7 +1,4 @@
-<hs-gefundene-kunden
-  [kunden]="kunden"
-  *ngIf="kunden.length; else showErrorMsg"
->
+<hs-gefundene-kunden [kunden]="kunden" *ngIf="kunden.length; else showErrorMsg">
 </hs-gefundene-kunden>
 
 <ng-template #showErrorMsg>

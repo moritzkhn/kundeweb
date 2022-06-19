@@ -15,13 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { HomeComponent } from './home.component';
-import { NgModule } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { HomeComponent } from "./home.component";
+import { NgModule } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 
 @NgModule({
-    declarations: [HomeComponent],
-    // Der Singleton-Service "Title" wird benoetigt
-    providers: [Title],
+  declarations: [HomeComponent],
+  // Der Singleton-Service "Title" wird benoetigt
+  providers: [Title],
 })
 export class HomeModule {}

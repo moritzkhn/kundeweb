@@ -13,12 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-@use '~angular-calendar/scss/angular-calendar';
-@use './app/sass/colors';
+@use "~angular-calendar/scss/angular-calendar";
+@use "./app/sass/colors";
 
 :root {
   --background-color: var(--bluesky);
-  --gradient: url('/assets/img/gradientBlueSky.webp');
+  --gradient: url("/assets/img/gradientBlueSky.webp");
 }
 
 .hs-nav {

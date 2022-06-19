@@ -15,52 +15,52 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { CreateKundeComponent } from './create-kunde.component';
-import { CreateNachnameComponent } from './create-nachname.component';
-import { CreateEmailComponent } from './create-email.component';
-import { CreateKategorieComponent } from './create-kategorie.component';
-import { CreateNewsletterComponent } from './create-newsletter.component';
-import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
-import { CreateHomepageComponent } from './create-homepage.component';
-import { CreateGeschlechtComponent } from './create-geschlecht.component';
-import { CreateFamilienstandComponent } from './create-familienstand.component';
-import { CreateInteressenComponent } from './create-interessen.component';
-import { CreateUmsatzComponent } from './create-umsatz.component';
-import { CreateAdresseComponent } from './create-adresse.component';
-import { CreateUsernameComponent } from './create-username.component';
-import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
-import { Title } from '@angular/platform-browser';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarModule, DateAdapter } from "angular-calendar";
+import { CreateKundeComponent } from "./create-kunde.component";
+import { CreateNachnameComponent } from "./create-nachname.component";
+import { CreateEmailComponent } from "./create-email.component";
+import { CreateKategorieComponent } from "./create-kategorie.component";
+import { CreateNewsletterComponent } from "./create-newsletter.component";
+import { CreateGeburtsdatumComponent } from "./create-geburtsdatum.component";
+import { CreateHomepageComponent } from "./create-homepage.component";
+import { CreateGeschlechtComponent } from "./create-geschlecht.component";
+import { CreateFamilienstandComponent } from "./create-familienstand.component";
+import { CreateInteressenComponent } from "./create-interessen.component";
+import { CreateUmsatzComponent } from "./create-umsatz.component";
+import { CreateAdresseComponent } from "./create-adresse.component";
+import { CreateUsernameComponent } from "./create-username.component";
+import { NgModule } from "@angular/core";
+import { SharedModule } from "../../shared/shared.module";
+import { Title } from "@angular/platform-browser";
+import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
 
 // Ein Modul enthaelt logisch zusammengehoerige Funktionalitaet.
 // Exportierte Komponenten koennen bei einem importierenden Modul in dessen
 // Komponenten innerhalb deren Templates (= HTML-Fragmente) genutzt werden.
 // KundeModule ist ein "FeatureModule", das Features fuer Buecher bereitstellt
 @NgModule({
-    imports: [
-        CalendarModule.forRoot({
-            provide: DateAdapter,
-            useFactory: adapterFactory,
-        }),
-        SharedModule,
-    ],
-    declarations: [
-        CreateNachnameComponent,
-        CreateKundeComponent,
-        CreateEmailComponent,
-        CreateKategorieComponent,
-        CreateGeburtsdatumComponent,
-        CreateNewsletterComponent,
-        CreateHomepageComponent,
-        CreateInteressenComponent,
-        CreateGeschlechtComponent,
-        CreateFamilienstandComponent,
-        CreateUmsatzComponent,
-        CreateAdresseComponent,
-        CreateUsernameComponent
-    ],
-    providers: [Title],
+  imports: [
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    SharedModule,
+  ],
+  declarations: [
+    CreateNachnameComponent,
+    CreateKundeComponent,
+    CreateEmailComponent,
+    CreateKategorieComponent,
+    CreateGeburtsdatumComponent,
+    CreateNewsletterComponent,
+    CreateHomepageComponent,
+    CreateInteressenComponent,
+    CreateGeschlechtComponent,
+    CreateFamilienstandComponent,
+    CreateUmsatzComponent,
+    CreateAdresseComponent,
+    CreateUsernameComponent,
+  ],
+  providers: [Title],
 })
 export class CreateKundeModule {}

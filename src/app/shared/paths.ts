@@ -33,11 +33,11 @@
  */
 
 // webpack dev server und nginx als "Reverse Proxy", d.h. eingehende Requests
-const PATH_REST = '/rest';
+const PATH_REST = "/rest";
 // CORS mit dem Appserver "buch" (in Kubernetes):
 // const PATH_REST = 'https://localhost:3000';
 
 export const paths = {
-    api: `${PATH_REST}/api`,
-    login: `${PATH_REST}/auth/login`,
+  api: `${PATH_REST}/api`,
+  login: `${PATH_REST}/auth/login`,
 };

@@ -11,13 +11,9 @@
     "homepage": "https://www.test.de",
     "geschlecht": "WEIBLICH",
     "familienstand": "LEDIG",
-    "interessen": [
-      "REISEN",
-      "LESEN",
-      "LESEN"
-    ],
+    "interessen":    "REISEN",
     "adresse": {
-      "plz": "1234",
+      "plz": "???",
       "ort": "Testort"
     }
 }

@@ -12,11 +12,7 @@
   "homepage": "anyhomepage",
   "geschlecht": "WEIBLICH",
   "familienstand": "LEDIG",
-  "interessen": [
-      "REISEN",
-      "LESEN",
-      "LESEN"
-  ],
+  "interessen": "REISEN",
   "adresse": {
       "plz": "1",
       "ort": "???"

@@ -15,15 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
-import log from 'loglevel';
+import { Component } from "@angular/core";
+import log from "loglevel";
 
 @Component({
-    selector: 'hs-waiting',
-    templateUrl: './waiting.component.html',
+  selector: "hs-waiting",
+  templateUrl: "./waiting.component.html",
 })
 export class WaitingComponent {
-    constructor() {
-        log.debug('WaitingComponent.constructor()');
-    }
+  constructor() {
+    log.debug("WaitingComponent.constructor()");
+  }
 }
