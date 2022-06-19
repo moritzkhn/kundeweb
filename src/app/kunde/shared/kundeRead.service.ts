@@ -33,7 +33,7 @@ import { paths } from "../../shared";
 export interface Suchkriterien {
   nachname: string;
   geschlecht: GeschlechtType | "";
-  interessen: Set<InteressenType>;
+  interessen: InteressenType;
 }
 
 export interface KundenServer {
