@@ -18,8 +18,8 @@
 export {
     type Kunde,
     type KundeShared,
-    type Geschlecht,
-    type Kategorie,
+    type GeschlechtType,
+    type InteressenType,
     type FamilienstandType,
 } from './kunde';
 export {

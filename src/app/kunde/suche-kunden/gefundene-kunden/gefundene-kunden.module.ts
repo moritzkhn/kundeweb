@@ -15,13 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { GefundeneBuecherComponent } from './gefundene-buecher.component';
+import { GefundeneKundenComponent } from './gefundene-kunden.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
     imports: [SharedModule],
-    declarations: [GefundeneBuecherComponent],
-    exports: [GefundeneBuecherComponent],
+    declarations: [GefundeneKundenComponent],
+    exports: [GefundeneKundenComponent],
 })
 export class GefundeneBuecherModule {}
