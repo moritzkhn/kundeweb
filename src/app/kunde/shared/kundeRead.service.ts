@@ -36,7 +36,7 @@ export interface Suchkriterien {
   interessen: InteressenType;
 }
 
-export interface KundenServer {
+export interface KundeServer {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   _embedded: {
     kunden: KundeServer[];
@@ -137,7 +137,7 @@ export class KundeReadService {
   }
 
   #toKundeArrayOrError(
-    restResult: KundenServer | FindError
+    restResult: KundeServer | FindError
   ): Kunde[] | FindError {
     log.debug("KundeReadService.#toKundeArrayOrError: restResult=", restResult);
     if (restResult instanceof FindError) {
