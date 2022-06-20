@@ -1,0 +1,36 @@
+<div class="row">
+  <label for="interessenInput" class="col col-2 col-form-label gy-3">
+    Interessen
+  </label>
+  <div class="col col-10 gy-3" [formGroup]="createForm">
+    <div class="form-checkbox">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="sInput"
+        formControlName="s"
+      />
+      <label for="sInput" class="ms-1">Sport</label>
+    </div>
+
+    <div class="form-checkbox">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="lInput"
+        formControlName="l"
+      />
+      <label for="sInput" class="ms-1">Lesen</label>
+    </div>
+
+    <div class="form-checkbox">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="rInput"
+        formControlName="r"
+      />
+      <label for="rInput" class="ms-1">Reisen</label>
+    </div>
+  </div>
+</div>

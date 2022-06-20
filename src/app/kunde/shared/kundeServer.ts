@@ -18,7 +18,7 @@ interface Link {
 export interface KundeServer extends KundeShared {
   kategorie?: number;
   geburtsdatum?: string;
-  interessen?:InteressenType;
+  // TODO interessen?: InteressenType;
   // eslint-disable-next-line @typescript-eslint/naming-convention
   _links?: {
     self: Link;

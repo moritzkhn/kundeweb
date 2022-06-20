@@ -59,7 +59,7 @@ export class BasicAuthService {
       return of();
     }
 
-    const loginPath = `${paths.login}/auth/rollen`;
+    const loginPath = `${paths.login}/auth/login`;
     log.debug("BasicAuthService.login: loginPath=", loginPath);
 
     /* eslint-disable @typescript-eslint/naming-convention */
@@ -79,7 +79,7 @@ export class BasicAuthService {
         // den 1. Datensatz empfangen und danach implizites "unsubscribe"
         first(),
         catchError((err: unknown) => {
-          log.debug("JwtService.login: err=", err);
+          log.debug("BasicAuthService.login: err=", err);
           // z.B. Statuscode 401 (Unauthorized) oder 504 (Gateway Timeout)
           return of(err as HttpErrorResponse);
         }),
@@ -103,7 +103,7 @@ export class BasicAuthService {
     log.debug("BasicAuthService.login: body", body);
     if (!ok || body === null) {
       const { statusText } = result;
-      log.error("JwtService.login: statusText", statusText);
+      log.error("BasicAuthService.login: statusText", statusText);
       return;
     }
 

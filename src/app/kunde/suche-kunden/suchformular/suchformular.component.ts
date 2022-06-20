@@ -45,7 +45,7 @@ export class SuchformularComponent {
   }
 
   /**
-   * Suche nach B&uuml;chern, die den spezfizierten Suchkriterien entsprechen
+   * Suche nach Kunden die den spezfizierten Suchkriterien entsprechen
    * @return false, um das durch den Button-Klick ausgel&ouml;ste Ereignis
    *         zu konsumieren.
    */

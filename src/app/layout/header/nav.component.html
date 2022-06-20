@@ -22,10 +22,10 @@
 <ul class="navbar-nav me-auto">
   <li class="nav-item active">
     <a
-      routerLink="/buecher/suche"
+      routerLink="/kunden/suche"
       routerLinkActive="active"
       class="nav-link"
-      aria-label="Suche Buecher"
+      aria-label="Suche Kunden"
     >
       <i class="material-icons">search</i>
       <span class="ms-1">Suche</span>
@@ -34,12 +34,12 @@
 
   <li class="nav-item" *ngIf="isAdmin$ | async">
     <a
-      routerLink="/buecher/create"
+      routerLink="/kunden/create"
       class="nav-link"
-      aria-label="Neues Buch anlegen"
+      aria-label="Neuen Kunde anlegen"
     >
       <i class="material-icons">menu_book</i>
-      <span class="ms-1">Neues Buch</span>
+      <span class="ms-1">Neuer Kunde</span>
     </a>
   </li>
 

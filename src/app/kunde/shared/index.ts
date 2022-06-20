@@ -24,7 +24,7 @@ export {
 } from "./kunde";
 export {
   KundeReadService,
-  type KundeServer,
+  type KundenServer,
   type Suchkriterien,
 } from "./kundeRead.service";
 export { KundeWriteService } from "./kundeWrite.service";

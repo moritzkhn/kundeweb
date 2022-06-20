@@ -28,13 +28,13 @@ export interface Kunde {
   version?: number;
   nachname: string;
   email: string;
-  kategorie: number | undefined;
+  kategorie?: number | undefined;
   newsletter: boolean | undefined;
   geburtsdatum: Temporal.PlainDate | undefined;
   homepage: string | undefined;
   geschlecht: GeschlechtType | undefined;
-  familienstand: FamilienstandType | null;
-  interessen: InteressenType| undefined;
+  familienstand: FamilienstandType | undefined;
+  interessen: InteressenType | undefined;
   umsatz: Umsatz | null;
   adresse: Adresse;
   /*
@@ -57,9 +57,9 @@ export interface KundeShared {
   kategorie?: number | undefined;
   newsletter?: boolean;
   homepage?: string | undefined;
-  interessen?: InteressenType| undefined;
+  interessen?: InteressenType | undefined;
   geschlecht: GeschlechtType | undefined;
-  familienstand: FamilienstandType | null;
+  familienstand: FamilienstandType | undefined;
   umsatz: Umsatz | null;
   adresse: Adresse;
 }

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2015 - present Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 import { type Kunde, type GeschlechtType, type InteressenType } from "./kunde";
 import { type KundeServer, toKunde } from "./kundeServer";
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -33,38 +17,15 @@ import { paths } from "../../shared";
 export interface Suchkriterien {
   nachname: string;
   geschlecht: GeschlechtType | "";
-  interessen: InteressenType;
+  interessen: InteressenType | "";
 }
 
-export interface KundeServer {
+export interface KundenServer {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   _embedded: {
     kunden: KundeServer[];
   };
 }
-
-// Methoden der Klasse HttpClient
-//  * get(url, options) – HTTP GET request
-//  * post(url, body, options) – HTTP POST request
-//  * put(url, body, options) – HTTP PUT request
-//  * patch(url, body, options) – HTTP PATCH request
-//  * delete(url, options) – HTTP DELETE request
-
-// Eine Service-Klasse ist eine "normale" Klasse gemaess ES 2015, die mittels
-// DI in eine Komponente injiziert werden kann, falls sie innerhalb von
-// provider: [...] bei einem Modulbereitgestellt wird.
-// Eine Komponente realisiert gemaess MVC-Pattern den Controller und die View.
-// Die Anwendungslogik wird vom Controller an Service-Klassen delegiert.
-// Service:
-// - wiederverwendbarer Code: in ggf. verschiedenen Controller
-// - Zugriff auf Daten, z.B. durch Aufruf von RESTful Web Services
-// - View (HTML-Template) <- Controller <- Service
-// https://angular.io/guide/singleton-services
-
-/**
- * Die Service-Klasse zu B&uuml;cher wird zum "Root Application Injector"
- * hinzugefuegt und ist in allen Klassen der Webanwendung verfuegbar.
- */
 @Injectable({ providedIn: "root" })
 export class KundeReadService {
   readonly #baseUrl = paths.api;
@@ -97,22 +58,10 @@ export class KundeReadService {
 
     // Query-Parameter ?titel=x&art=KINDLE&...
     const params = this.#suchkriterienToHttpParams(suchkriterien);
-
-    // Promise:
-    // - Einzelner Wert
-    // - Kein Cancel
-    //
-    // Observable aus RxJS:
-    // - die Werte werden "lazy" in einem Stream bereitgestellt
-    // - Operatoren: map, forEach, filter, ...
-    // - Ausfuehrung nur dann, wenn es einen Aufruf von subscribe() gibt
-    // - firstValueFrom() konvertiert den ersten Wert in ein Promise
-    // - Cancel ist moeglich
-    // https://stackoverflow.com/questions/37364973/what-is-the-difference-between-promises-and-observables
-
+    
     return (
       this.httpClient
-        .get<KundeServer>(url, { params })
+        .get<KundenServer>(url, { params })
 
         // pipe ist eine "pure" Funktion, die ein Observable in ein NEUES Observable transformiert
         .pipe(
@@ -130,6 +79,7 @@ export class KundeReadService {
         )
     );
 
+
     // Same-Origin-Policy verhindert Ajax-Datenabfragen an einen Server in
     // einer anderen Domain. JSONP (= JSON mit Padding) ermoeglicht die
     // Uebertragung von JSON-Daten ueber Domaingrenzen.
@@ -137,7 +87,7 @@ export class KundeReadService {
   }
 
   #toKundeArrayOrError(
-    restResult: KundeServer | FindError
+    restResult: KundenServer | FindError
   ): Kunde[] | FindError {
     log.debug("KundeReadService.#toKundeArrayOrError: restResult=", restResult);
     if (restResult instanceof FindError) {
@@ -231,13 +181,29 @@ export class KundeReadService {
     const { nachname, geschlecht, interessen } = suchkriterien;
 
     if (nachname !== "") {
-      httpParams = httpParams.set("name", nachname);
+      httpParams = httpParams.set("nachname", nachname);
     }
     if (geschlecht !== "") {
-      httpParams = httpParams.set("geschlecht", geschlecht);
+      let g;
+      if (geschlecht == "MAENNLICH"){
+        g = "M";
+      } if (geschlecht == "WEIBLICH"){
+        g="W";
+      } else {
+        g="D";
+      }
+      httpParams = httpParams.set("geschlecht", g);
     }
     if (interessen !== "") {
-      httpParams = httpParams.set("interessen", interessen);
+      let interesse;
+      if (interessen == "SPORT"){
+        interesse = "S";
+      } if (interessen == "LESEN"){
+        interesse="L";
+      } else {
+        interesse="R";
+      }
+      httpParams = httpParams.set("interesse", interesse);
     }
     return httpParams;
   }
