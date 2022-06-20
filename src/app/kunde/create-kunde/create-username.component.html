@@ -1,0 +1,32 @@
+<div class="row">
+  <label for="usernameInput" class="col col-2 col-form-label gy-3">
+    Benutzername *
+  </label>
+  <div class="col col-10 gy-3" [formGroup]="createForm">
+    <div class="input-group">
+      <input
+        id="usernameInput"
+        placeholder="Benutzername, z.B. Mustermann"
+        class="form-control"
+        required
+        minlength="2"
+        formControlName="username"
+        [class.is-invalid]="username.invalid && username.touched"
+        [class.is-valid]="username.valid && username.touched"
+      />
+
+      <div
+        class="invalid-feedback"
+        *ngIf="username.invalid && username.touched && username.errors"
+      >
+        <i class="material-icons">error</i>
+        <span
+          class="ms-1"
+          *ngIf="username.errors['required'] || username.errors['pattern']"
+        >
+          Eine gültiger Benutzername muss eingegeben werden.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

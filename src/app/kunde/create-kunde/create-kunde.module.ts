@@ -24,11 +24,15 @@ import { CreateNewsletterComponent } from './create-newsletter.component';
 import { CreateGeschlechtComponent } from './create-geschlecht.component';
 import { CreateFamilienstandComponent } from './create-familienstand.component';
 import { CreateInteressenComponent } from './create-interessen.component';
-import { CreateBetragComponent } from './create-betrag.component';
+import { CreatePlzComponent } from './create-plz.component';
+import { CreateOrtComponent } from './create-ort.component';
+import { CreateUsernameComponent } from './create-username.component';
+import { CreatePasswordComponent } from './create-password.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { Title } from '@angular/platform-browser';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
 
 // Ein Modul enthaelt logisch zusammengehoerige Funktionalitaet.
 // Exportierte Komponenten koennen bei einem importierenden Modul in dessen
@@ -46,12 +50,16 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
         CreateNachnameComponent,
         CreateKundeComponent,
         CreateEmailComponent,
+        CreateGeburtsdatumComponent,
         CreateKategorieComponent,
         CreateNewsletterComponent,
         CreateInteressenComponent,
         CreateGeschlechtComponent,
         CreateFamilienstandComponent,
-        CreateBetragComponent,
+        CreatePlzComponent,
+        CreateOrtComponent,
+        CreatePasswordComponent,
+        CreateUsernameComponent,
     ],
     providers: [Title],
 })

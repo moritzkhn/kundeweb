@@ -19,6 +19,11 @@ export interface Adresse {
     plz: string | '';
     ort: string | '';
 }
+
+export interface User {
+    username: string | '';
+    password: string | '';
+}
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
  * Functions fuer Abfragen und Aenderungen.
@@ -28,15 +33,16 @@ export interface Kunde {
     version?: number;
     nachname: string;
     email: string;
-    kategorie: number | undefined;
+    kategorie: number | null;
     newsletter: boolean | undefined;
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: string | undefined;
     geschlecht: GeschlechtType | undefined;
-    familienstand: FamilienstandType | null;
+    familienstand: FamilienstandType | undefined;
     interessen: InteressenType | undefined;
-    umsatz: Umsatz | null;
+    umsatz: Umsatz | undefined;
     adresse: Adresse;
+    user: User | undefined;
     /*
     userName: string;
     erzeugt:  Temporal.PlainDate; //TODO aktuelles Daatum + Zeit
@@ -58,8 +64,8 @@ export interface KundeShared {
     newsletter?: boolean;
     homepage?: string | undefined;
     interessen?: InteressenType | undefined;
-    geschlecht: GeschlechtType | undefined;
-    familienstand: FamilienstandType | null;
-    umsatz: Umsatz | null;
+    geschlecht: GeschlechtType | undefined; //null
+    familienstand: FamilienstandType | undefined;
+    umsatz: Umsatz | undefined; //null
     adresse: Adresse;
 }

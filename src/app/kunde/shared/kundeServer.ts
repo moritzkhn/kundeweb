@@ -1,4 +1,9 @@
-import { type Kunde, type KundeShared, type InteressenType } from './kunde';
+import {
+    type Kunde,
+    type KundeShared,
+    type InteressenType,
+    User,
+} from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
 
@@ -19,6 +24,7 @@ export interface KundeServer extends KundeShared {
     kategorie?: number;
     geburtsdatum?: string;
     interessen?: InteressenType;
+    user?: User;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _links?: {
         self: Link;
@@ -68,6 +74,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen,
         umsatz,
         adresse,
+        user,
     } = kundeServer;
 
     let geburtsdatumTemporal: Temporal.PlainDate | undefined;
@@ -95,6 +102,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         interessen,
         umsatz,
         adresse,
+        user,
         version,
     };
     log.debug('Kunde.fromServer: kunde=', kunde);
@@ -123,5 +131,6 @@ export const toKundeServer = (kunde: Kunde): KundeServer => {
         interessen: kunde.interessen,
         umsatz: kunde.umsatz,
         adresse: kunde.adresse,
+        user: kunde.user,
     };
 };

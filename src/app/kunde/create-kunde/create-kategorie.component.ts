@@ -18,6 +18,6 @@ export class CreateKategorieComponent implements OnInit {
 
     ngOnInit() {
         log.debug('CreateKategorieComponent.ngOnInit');
-        this.createForm.addControl('rating', this.kategorie);
+        this.createForm.addControl('kategorie', this.kategorie);
     }
 }

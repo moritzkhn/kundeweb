@@ -1,6 +1,7 @@
 import { type Kunde, type KundeShared } from '../shared';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
+import { Adresse } from '../shared/kunde';
 
 /**
  * Daten aus einem Formular:
@@ -11,6 +12,10 @@ import log from 'loglevel';
  */
 export interface KundeForm extends KundeShared {
     geburtsdatum: Date;
+    ort: string;
+    plz: string;
+    username: string;
+    password: string;
 }
 
 /**
@@ -32,16 +37,20 @@ export const toKunde = (kundeForm: KundeForm) => {
         geschlecht,
         familienstand,
         umsatz,
-        adresse,
+        plz,
+        ort,
+        username,
+        password,
     } = kundeForm;
 
     const kategorieNumber = Number(kategorie);
-
+    const adresseneu = { plz, ort };
     const geburtsdatumTemporal = new Temporal.PlainDate(
         geburtsdatum.getFullYear(),
         geburtsdatum.getMonth() + 1,
         geburtsdatum.getDate(),
     );
+    const userneu = { username, password };
     log.debug('toKunde: geburtsdatumTemporal=', geburtsdatumTemporal);
 
     const kunde: Kunde = {
@@ -55,7 +64,8 @@ export const toKunde = (kundeForm: KundeForm) => {
         familienstand,
         interessen,
         umsatz,
-        adresse,
+        adresse: adresseneu,
+        user: userneu,
         version: 0,
     };
     log.debug('toKunde: kunde=', kunde);
