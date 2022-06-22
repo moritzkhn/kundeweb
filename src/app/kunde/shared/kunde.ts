@@ -33,13 +33,13 @@ export interface Kunde {
     version?: number;
     nachname: string;
     email: string;
-    kategorie: number | null;
+    kategorie: number | undefined;
     newsletter: boolean | undefined;
     geburtsdatum: Temporal.PlainDate | undefined;
     homepage: string | undefined;
     geschlecht: GeschlechtType | undefined;
     familienstand: FamilienstandType | undefined;
-    interessen: InteressenType | undefined;
+    interessen?: InteressenType | undefined;
     umsatz: Umsatz | undefined;
     adresse: Adresse;
     user: User | undefined;
@@ -63,7 +63,7 @@ export interface KundeShared {
     kategorie?: number | undefined;
     newsletter?: boolean;
     homepage?: string | undefined;
-    interessen?: InteressenType | undefined;
+    interessen?: InteressenType | null;
     geschlecht: GeschlechtType | undefined; //null
     familienstand: FamilienstandType | undefined;
     umsatz: Umsatz | undefined; //null

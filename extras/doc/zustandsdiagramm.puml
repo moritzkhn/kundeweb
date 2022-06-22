@@ -1,0 +1,20 @@
+@startuml Zustandsdiagramm
+scale 500 width
+
+[*] -> startseite.html
+startseite.html --> suchformular.html : Suchbutton klicken
+suchformular.html --> suche : Eingaben tätigen, click & submit
+suche --> suchergebnis.html : suchen
+suchergebnis.html --> gefundeneKunden.html : gefunden
+suchergebnis.html --> fehlermeldung : nicht gefunden
+gefundeneKunden.html --> stammdaten.html : Button "Details anzeigen", click & submit
+stammdaten.html --> inBearbeitung : Button "bearbeiten", click & submit
+inBearbeitung --> startseite.html : bearbeiten, click & submit
+startseite.html -> eingeloggt: korrektes Login, click & submit
+eingeloggt --> createformular.html : Createbutton klicken
+createformular.html --> create: Eingaben tätigen, click & submit
+create --> startseite.html : create erfolgreich
+create --> fehlermeldung : create nicht erfolgreich
+@enduml
+
+startseite.html -> startseite.html: inkorrektes Login, click & submit

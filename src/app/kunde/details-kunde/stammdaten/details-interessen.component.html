@@ -1,0 +1,11 @@
+<div class="row mt-2">
+  <label class="col col-1"> Interessen </label>
+  <div class="col col-11">
+    <span [ngSwitch]="interessen">
+      <span *ngSwitchCase="'S'">Sport</span>
+      <span *ngSwitchCase="'R'">Reisen</span>
+      <span *ngSwitchCase="'L'">Lesen</span>
+      <span *ngSwitchDefault>unbekannt</span>
+    </span>
+  </div>
+</div>

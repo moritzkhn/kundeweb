@@ -16,6 +16,8 @@ export interface KundeForm extends KundeShared {
     plz: string;
     username: string;
     password: string;
+    betrag: number;
+    waehrung: string;
 }
 
 /**
@@ -50,6 +52,7 @@ export const toKunde = (kundeForm: KundeForm) => {
         geburtsdatum.getMonth() + 1,
         geburtsdatum.getDate(),
     );
+    const umsneu = { betrag: 24, waehrung: 'EUR' };
     const userneu = { username, password };
     log.debug('toKunde: geburtsdatumTemporal=', geburtsdatumTemporal);
 
@@ -59,11 +62,11 @@ export const toKunde = (kundeForm: KundeForm) => {
         kategorie: kategorieNumber,
         newsletter,
         geburtsdatum: geburtsdatumTemporal,
-        homepage,
+        homepage: 'https://www.test.de',
         geschlecht,
         familienstand,
-        interessen,
-        umsatz,
+        interessen: undefined,
+        umsatz: umsneu,
         adresse: adresseneu,
         user: userneu,
         version: 0,

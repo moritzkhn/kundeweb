@@ -6,6 +6,7 @@ import {
 } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
+import { newArray } from '@angular/compiler/src/util';
 
 interface Link {
     href: string;
@@ -23,7 +24,6 @@ interface Link {
 export interface KundeServer extends KundeShared {
     kategorie?: number;
     geburtsdatum?: string;
-    interessen?: InteressenType;
     user?: User;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _links?: {
@@ -71,7 +71,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
-        interessen,
         umsatz,
         adresse,
         user,
@@ -99,7 +98,6 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
-        interessen,
         umsatz,
         adresse,
         user,
@@ -114,23 +112,24 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
  * Web Service.
  * @return Das JSON-Objekt f&uuml;r den RESTful Web Service
  */
-export const toKundeServer = (kunde: Kunde): KundeServer => {
+export const toKundeServer = (kunde: Kunde) => {
     const geburtsdatum =
         kunde.geburtsdatum === undefined
             ? undefined
             : kunde.geburtsdatum.toString();
     return {
-        nachname: kunde.nachname,
-        email: kunde.email,
-        kategorie: kunde.kategorie,
-        newsletter: kunde.newsletter,
-        geburtsdatum,
-        homepage: kunde.homepage,
-        geschlecht: kunde.geschlecht,
-        familienstand: kunde.familienstand,
-        interessen: kunde.interessen,
-        umsatz: kunde.umsatz,
-        adresse: kunde.adresse,
+        kunde: {
+            nachname: kunde.nachname,
+            email: kunde.email,
+            kategorie: kunde.kategorie,
+            newsletter: kunde.newsletter,
+            geburtsdatum,
+            homepage: kunde.homepage,
+            geschlecht: kunde.geschlecht,
+            familienstand: kunde.familienstand,
+            umsatz: kunde.umsatz,
+            adresse: kunde.adresse,
+        },
         user: kunde.user,
     };
 };
