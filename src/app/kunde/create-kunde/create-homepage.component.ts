@@ -16,7 +16,9 @@ export class CreateHomepageComponent implements OnInit {
     @Input()
     createForm!: FormGroup;
 
-    readonly homepage = new FormControl(undefined, [Validators.minLength(CreateHomepageComponent.MIN_LENGTH)]);
+    readonly homepage = new FormControl(undefined, [
+        Validators.minLength(CreateHomepageComponent.MIN_LENGTH),
+    ]);
 
     ngOnInit() {
         log.debug('CreateHomepageComponent.ngOnInit');

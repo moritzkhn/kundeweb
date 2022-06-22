@@ -54,7 +54,7 @@ export const toKunde = (kundeForm: KundeForm) => {
     log.debug('toKunde: geburtsdatumTemporal=', geburtsdatumTemporal);
 
     const kunde: Kunde = {
-        nachname: nachname ?? undefined,
+        nachname,
         email,
         kategorie: kategorieNumber,
         newsletter,
