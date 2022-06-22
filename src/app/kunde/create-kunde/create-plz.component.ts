@@ -12,6 +12,7 @@ import log from 'loglevel';
 })
 export class CreatePlzComponent implements OnInit {
     private static readonly MIN_LENGTH = 5;
+
     private static readonly MAX_LENGTH = 5;
 
     @Input()
@@ -21,7 +22,7 @@ export class CreatePlzComponent implements OnInit {
         Validators.required,
         Validators.minLength(CreatePlzComponent.MIN_LENGTH),
         Validators.minLength(CreatePlzComponent.MAX_LENGTH),
-        Validators.pattern(/^[0-9]{5}$/),
+        Validators.pattern(/^\d{5}$/u),
     ]);
 
     ngOnInit() {

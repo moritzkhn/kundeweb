@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable array-bracket-newline */
 import { Component, Input, type OnInit } from '@angular/core';
 import { FormControl, type FormGroup, Validators } from '@angular/forms';
 import log from 'loglevel';

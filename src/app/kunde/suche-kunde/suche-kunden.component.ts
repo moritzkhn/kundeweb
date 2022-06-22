@@ -15,14 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import { Component, type OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
+    FindError,
     type Kunde,
     KundeReadService,
-    FindError,
     type Suchkriterien,
 } from '../shared';
-import { Component, type OnInit } from '@angular/core';
 import { first, tap } from 'rxjs/operators';
 import { HttpStatusCode } from '@angular/common/http';
 import { Title } from '@angular/platform-browser'; // eslint-disable-line @typescript-eslint/consistent-type-imports
@@ -90,7 +90,7 @@ export class SucheKundenComponent implements OnInit {
             .subscribe();
     }
 
-    #setProps(result: Kunde[] | FindError) {
+    #setProps(result: FindError | Kunde[]) {
         this.waiting = false;
 
         if (result instanceof FindError) {

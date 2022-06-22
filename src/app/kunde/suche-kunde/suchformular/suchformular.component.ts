@@ -1,5 +1,5 @@
-import { type InteressenType, type GeschlechtType } from '../../shared/kunde';
 import { Component, Output } from '@angular/core';
+import { type GeschlechtType, type InteressenType } from '../../shared/kunde';
 import { Subject } from 'rxjs';
 import { type Suchkriterien } from '../../shared';
 import { fadeIn } from '../../../shared';

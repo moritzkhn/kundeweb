@@ -1,12 +1,12 @@
 import { RouterModule, type Routes } from '@angular/router';
 import { AdminGuard } from '../auth/admin.guard';
-import { KundeModule } from './kunde.module';
 import { CreateKundeComponent } from './create-kunde/create-kunde.component';
 import { CreateKundeGuard } from './create-kunde/create-kunde.guard';
-import { SucheKundenComponent } from './suche-kunde/suche-kunden.component';
-import { Component, NgModule } from '@angular/core';
-import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
 import { DetailsKundeComponent } from './details-kunde/details-kunde.component';
+import { KundeModule } from './kunde.module';
+import { NgModule } from '@angular/core';
+import { SucheKundenComponent } from './suche-kunde/suche-kunden.component';
+import { UpdateKundeComponent } from './update-kunde/update-kunde.component';
 
 // Route-Definitionen fuer das Feature-Modul "kunde":
 // Zuordnung von Pfaden und Komponenten mit HTML-Templates

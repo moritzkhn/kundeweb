@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
-import { type Kunde, KundeReadService } from '../shared'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { Component, type OnInit } from '@angular/core';
+import { type Kunde, KundeReadService } from '../shared'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { first, tap } from 'rxjs/operators';
 import { AuthService } from '../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { FindError } from '../shared/errors';
@@ -71,7 +71,7 @@ export class DetailsKundeComponent implements OnInit {
         this.isAdmin = this.authService.isAdmin;
     }
 
-    #setProps(result: Kunde | FindError) {
+    #setProps(result: FindError | Kunde) {
         this.waiting = false;
 
         if (result instanceof FindError) {

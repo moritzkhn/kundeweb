@@ -11,6 +11,7 @@ import log from 'loglevel';
 })
 export class SucheNachnameComponent {
     nachname = '';
+
     @Output()
     readonly nachname$ = new Subject<string>();
 

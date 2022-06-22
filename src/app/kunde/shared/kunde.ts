@@ -1,14 +1,14 @@
 import { type Temporal } from '@js-temporal/polyfill';
 
-export type GeschlechtType = 'MAENNLICH' | 'WEIBLICH' | 'DIVERS';
+export type GeschlechtType = 'DIVERS' | 'MAENNLICH' | 'WEIBLICH';
 
 export type FamilienstandType =
+    | 'GESCHIEDEN'
     | 'LEDIG'
     | 'VERHEIRATET'
-    | 'GESCHIEDEN'
     | 'VERWITWET';
 
-export type InteressenType = 'SPORT' | 'LESEN' | 'REISEN';
+export type InteressenType = 'LESEN' | 'REISEN' | 'SPORT';
 export interface Umsatz {
     id?: string | null;
     betrag: number;
@@ -16,13 +16,13 @@ export interface Umsatz {
 }
 export interface Adresse {
     id?: string | null;
-    plz: string | '';
-    ort: string | '';
+    plz: string;
+    ort: string;
 }
 
 export interface User {
-    username: string | '';
-    password: string | '';
+    username: string;
+    password: string;
 }
 /**
  * Model als Plain-Old-JavaScript-Object (POJO) fuer die Daten *UND*
@@ -64,8 +64,8 @@ export interface KundeShared {
     newsletter?: boolean;
     homepage?: string | undefined;
     interessen?: InteressenType | null;
-    geschlecht: GeschlechtType | undefined; //null
+    geschlecht: GeschlechtType | undefined;
     familienstand: FamilienstandType | undefined;
-    umsatz: Umsatz | undefined; //null
+    umsatz: Umsatz | undefined;
     adresse: Adresse;
 }

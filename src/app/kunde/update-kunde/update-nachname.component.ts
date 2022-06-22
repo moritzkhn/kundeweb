@@ -30,7 +30,7 @@ export class UpdateNachnameComponent implements OnInit {
         this.nachname = new FormControl(this.currentValue, [
             Validators.required,
             Validators.minLength(UpdateNachnameComponent.MIN_LENGTH),
-            Validators.pattern(/^[a-zA-Z ]+$/),
+            Validators.pattern(/^[ A-Za-z]+$/u),
         ]);
         this.updateForm.addControl('nachname', this.nachname);
     }

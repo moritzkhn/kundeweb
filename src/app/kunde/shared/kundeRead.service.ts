@@ -1,5 +1,4 @@
-import { type Kunde, type GeschlechtType, type InteressenType } from './kunde';
-import { type KundeServer, toKunde } from './kundeServer';
+import { type GeschlechtType, type InteressenType, type Kunde } from './kunde';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
     HttpClient,
@@ -7,6 +6,7 @@ import {
     HttpParams,
     type HttpResponse,
 } from '@angular/common/http';
+import { type KundeServer, toKunde } from './kundeServer';
 import { type Observable, of } from 'rxjs';
 import { catchError, first, map } from 'rxjs/operators';
 import { FindError } from './errors';
@@ -45,7 +45,7 @@ export class KundeReadService {
      */
     find(
         suchkriterien: Suchkriterien | undefined = undefined, // eslint-disable-line unicorn/no-useless-undefined
-    ): Observable<Kunde[] | FindError> {
+    ): Observable<FindError | Kunde[]> {
         log.debug('KundeReadService.find: suchkriterien=', suchkriterien);
         // log.debug(
         //     `KundeReadService.find: suchkriterien=${JSON.stringify(
@@ -86,8 +86,8 @@ export class KundeReadService {
     }
 
     #toKundeArrayOrError(
-        restResult: KundenServer | FindError,
-    ): Kunde[] | FindError {
+        restResult: FindError | KundenServer,
+    ): FindError | Kunde[] {
         log.debug(
             'KundeReadService.#toKundeArrayOrError: restResult=',
             restResult,
@@ -108,7 +108,7 @@ export class KundeReadService {
      * Einen Kunden anhand der ID suchen
      * @param id Die ID des gesuchten Kundens
      */
-    findById(id: string | undefined): Observable<Kunde | FindError> {
+    findById(id: string | undefined): Observable<FindError | Kunde> {
         log.debug('KundeReadService.findById: id=', id);
 
         if (id === undefined) {
@@ -145,7 +145,7 @@ export class KundeReadService {
 
     #toKundeOrError(
         restResult: FindError | HttpResponse<KundeServer>,
-    ): Kunde | FindError {
+    ): FindError | Kunde {
         if (restResult instanceof FindError) {
             return restResult;
         }

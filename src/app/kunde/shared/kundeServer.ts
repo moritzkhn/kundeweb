@@ -1,12 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
+    type InteressenType,
     type Kunde,
     type KundeShared,
-    type InteressenType,
     User,
 } from './kunde';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
-import { newArray } from '@angular/compiler/src/util';
 
 interface Link {
     href: string;
@@ -91,7 +91,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
 
     const kunde: Kunde = {
         id,
-        nachname: nachname ?? 'unbekannt',
+        nachname,
         email,
         kategorie,
         newsletter,

@@ -1,7 +1,8 @@
 import { Component, type OnInit } from '@angular/core';
-import { type KundeForm, toKunde } from './kundeForm';
 import { first, tap } from 'rxjs/operators';
+// eslint-disable-next-line sort-imports
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import { type KundeForm, toKunde } from './kundeForm';
 import { KundeWriteService, SaveError } from '../shared'; // eslint-disable-line @typescript-eslint/consistent-type-imports
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports

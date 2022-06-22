@@ -1,19 +1,14 @@
 import { ActivatedRoute, Router } from '@angular/router'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { Component, type OnInit } from '@angular/core';
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import {
+    FindError,
     type Kunde,
     KundeReadService,
     KundeWriteService,
-    FindError,
     UpdateError,
 } from '../shared';
-import {
-    type GeschlechtType,
-    type FamilienstandType,
-    type InteressenType,
-} from '../shared/kunde';
 /* eslint-enable @typescript-eslint/consistent-type-imports */
-import { Component, type OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { first, tap } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
@@ -96,7 +91,7 @@ export class UpdateKundeComponent implements OnInit {
         return false;
     }
 
-    #setProps(result: Kunde | FindError) {
+    #setProps(result: FindError | Kunde) {
         if (result instanceof FindError) {
             this.#handleFindError(result);
             return;

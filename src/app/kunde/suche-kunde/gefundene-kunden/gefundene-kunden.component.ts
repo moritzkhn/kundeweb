@@ -18,6 +18,7 @@
 /* eslint-disable max-classes-per-file */
 
 import { AuthService, ROLLE_ADMIN } from '../../../auth/auth.service'; // eslint-disable-line @typescript-eslint/consistent-type-imports
+import { Component, Input, type OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import {
     type Kunde,
@@ -25,7 +26,6 @@ import {
     KundeWriteService,
     RemoveError,
 } from '../../shared';
-import { Component, Input, type OnInit } from '@angular/core';
 import { easeIn, easeOut } from '../../../shared';
 import { first, tap } from 'rxjs/operators';
 import { NgLocalization } from '@angular/common';
