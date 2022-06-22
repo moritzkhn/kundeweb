@@ -187,26 +187,18 @@ export class KundeReadService {
         }
         if (geschlecht !== '') {
             let g;
-            if (geschlecht == 'MAENNLICH') {
+            if (geschlecht === 'MAENNLICH') {
                 g = 'M';
             }
-            if (geschlecht == 'WEIBLICH') {
-                g = 'W';
-            } else {
-                g = 'D';
-            }
+            g = geschlecht === 'WEIBLICH' ? 'W' : 'D';
             httpParams = httpParams.set('geschlecht', g);
         }
         if (interessen !== '') {
             let interesse;
-            if (interessen == 'SPORT') {
+            if (interessen === 'SPORT') {
                 interesse = 'S';
             }
-            if (interessen == 'LESEN') {
-                interesse = 'L';
-            } else {
-                interesse = 'R';
-            }
+            interesse = interessen === 'LESEN' ? 'L' : 'R';
             httpParams = httpParams.set('interesse', interesse);
         }
         return httpParams;
