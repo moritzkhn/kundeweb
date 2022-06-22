@@ -1,7 +1,6 @@
 import { type Kunde, type KundeShared } from '../shared';
 import { Temporal } from '@js-temporal/polyfill';
 import log from 'loglevel';
-import { Adresse } from '../shared/kunde';
 
 /**
  * Daten aus einem Formular:
@@ -34,11 +33,9 @@ export const toKunde = (kundeForm: KundeForm) => {
         kategorie,
         newsletter,
         geburtsdatum,
-        interessen,
         homepage,
         geschlecht,
         familienstand,
-        umsatz,
         plz,
         ort,
         username,
@@ -57,12 +54,12 @@ export const toKunde = (kundeForm: KundeForm) => {
     log.debug('toKunde: geburtsdatumTemporal=', geburtsdatumTemporal);
 
     const kunde: Kunde = {
-        nachname: nachname ?? 'unbekannt',
+        nachname: nachname ?? undefined,
         email,
         kategorie: kategorieNumber,
         newsletter,
         geburtsdatum: geburtsdatumTemporal,
-        homepage: 'https://www.test.de',
+        homepage,
         geschlecht,
         familienstand,
         interessen: undefined,

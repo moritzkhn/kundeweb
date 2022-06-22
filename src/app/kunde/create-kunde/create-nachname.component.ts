@@ -19,7 +19,7 @@ export class CreateNachnameComponent implements OnInit {
     readonly nachname = new FormControl(undefined, [
         Validators.required,
         Validators.minLength(CreateNachnameComponent.MIN_LENGTH),
-        Validators.pattern(/^\w/u),
+        Validators.pattern(/^[ a-zA-Z\-']+$/u),
     ]);
 
     ngOnInit() {

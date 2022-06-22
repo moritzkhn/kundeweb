@@ -16,23 +16,23 @@
  */
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { CreateEmailComponent } from './create-email.component';
+import { CreateFamilienstandComponent } from './create-familienstand.component';
+import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
+import { CreateGeschlechtComponent } from './create-geschlecht.component';
+import { CreateHomepageComponent } from './create-homepage.component';
+import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateKundeComponent } from './create-kunde.component';
 import { CreateNachnameComponent } from './create-nachname.component';
-import { CreateEmailComponent } from './create-email.component';
-import { CreateKategorieComponent } from './create-kategorie.component';
 import { CreateNewsletterComponent } from './create-newsletter.component';
-import { CreateGeschlechtComponent } from './create-geschlecht.component';
-import { CreateFamilienstandComponent } from './create-familienstand.component';
-import { CreateInteressenComponent } from './create-interessen.component';
-import { CreatePlzComponent } from './create-plz.component';
 import { CreateOrtComponent } from './create-ort.component';
-import { CreateUsernameComponent } from './create-username.component';
 import { CreatePasswordComponent } from './create-password.component';
+import { CreatePlzComponent } from './create-plz.component';
+import { CreateUsernameComponent } from './create-username.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { Title } from '@angular/platform-browser';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
 
 // Ein Modul enthaelt logisch zusammengehoerige Funktionalitaet.
 // Exportierte Komponenten koennen bei einem importierenden Modul in dessen
@@ -47,18 +47,18 @@ import { CreateGeburtsdatumComponent } from './create-geburtsdatum.component';
         SharedModule,
     ],
     declarations: [
-        CreateNachnameComponent,
-        CreateKundeComponent,
         CreateEmailComponent,
-        CreateGeburtsdatumComponent,
-        CreateKategorieComponent,
-        CreateNewsletterComponent,
-        CreateInteressenComponent,
-        CreateGeschlechtComponent,
         CreateFamilienstandComponent,
-        CreatePlzComponent,
+        CreateGeburtsdatumComponent,
+        CreateGeschlechtComponent,
+        CreateHomepageComponent,
+        CreateKategorieComponent,
+        CreateKundeComponent,
+        CreateNachnameComponent,
+        CreateNewsletterComponent,
         CreateOrtComponent,
         CreatePasswordComponent,
+        CreatePlzComponent,
         CreateUsernameComponent,
     ],
     providers: [Title],

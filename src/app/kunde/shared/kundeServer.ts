@@ -24,6 +24,7 @@ interface Link {
 export interface KundeServer extends KundeShared {
     kategorie?: number;
     geburtsdatum?: string;
+    interessen?: InteressenType;
     user?: User;
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _links?: {
@@ -71,13 +72,13 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
+        interessen,
         umsatz,
         adresse,
         user,
     } = kundeServer;
 
     let geburtsdatumTemporal: Temporal.PlainDate | undefined;
-    // TODO Parsing, ob der Datum-String valide ist
     if (geburtsdatum !== undefined) {
         const [yearStr, monthStr, dayStr] = geburtsdatum
             .replace(/T.*/gu, '')
@@ -98,6 +99,7 @@ export const toKunde = (kundeServer: KundeServer, etag?: string) => {
         homepage,
         geschlecht,
         familienstand,
+        interessen,
         umsatz,
         adresse,
         user,
@@ -127,7 +129,6 @@ export const toKundeServer = (kunde: Kunde) => {
             homepage: kunde.homepage,
             geschlecht: kunde.geschlecht,
             familienstand: kunde.familienstand,
-            umsatz: kunde.umsatz,
             adresse: kunde.adresse,
         },
         user: kunde.user,
