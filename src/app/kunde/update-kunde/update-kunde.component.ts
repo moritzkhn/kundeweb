@@ -41,7 +41,6 @@ export class UpdateKundeComponent implements OnInit {
     }
 
     ngOnInit() {
-        // Pfad-Parameter aus /kunden/:id/update
         const id = this.route.snapshot.paramMap.get('id') ?? undefined;
 
         this.readService
@@ -84,10 +83,6 @@ export class UpdateKundeComponent implements OnInit {
                 tap(result => this.#handleUpdateResult(result)),
             )
             .subscribe({ next: () => this.#navigateHome() });
-
-        // damit das (Submit-) Ereignis konsumiert wird und nicht an
-        // uebergeordnete Eltern-Komponenten propagiert wird bis zum
-        // Refresh der gesamten Seite
         return false;
     }
 
@@ -142,7 +137,6 @@ export class UpdateKundeComponent implements OnInit {
         switch (statuscode) {
             case HttpStatusCode.UnprocessableEntity: {
                 const { cause } = result;
-                // TODO Aufbereitung der Fehlermeldung: u.a. Anfuehrungszeichen
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 this.errorMsg =
                     cause instanceof HttpErrorResponse
@@ -164,7 +158,7 @@ export class UpdateKundeComponent implements OnInit {
         }
 
         log.debug(
-            'UpdateStammdatenComponent.#handleError: errorMsg=',
+            'UpdateKundeComponent.#handleError: errorMsg=',
             this.errorMsg,
         );
     }

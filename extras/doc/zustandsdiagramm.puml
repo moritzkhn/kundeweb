@@ -16,5 +16,3 @@ createformular.html --> create: Eingaben tätigen, click & submit
 create --> startseite.html : create erfolgreich
 create --> fehlermeldung : create nicht erfolgreich
 @enduml
-
-startseite.html -> startseite.html: inkorrektes Login, click & submit
