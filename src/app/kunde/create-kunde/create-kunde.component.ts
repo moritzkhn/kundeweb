@@ -48,14 +48,6 @@ export class CreateKundeComponent implements OnInit {
      *         zu konsumieren.
      */
     onSubmit() {
-        // In einem Control oder in einer FormGroup gibt es u.a. folgende
-        // Properties
-        //    value     JSON-Objekt mit den IDs aus der FormGroup als
-        //              Schluessel und den zugehoerigen Werten
-        //    errors    Map<string,any> mit den Fehlern, z.B. {'required': true}
-        //    valid/invalid     fuer valide Werte
-        //    dirty/pristine    falls der Wert geaendert wurde
-
         if (this.createForm.invalid) {
             log.debug(
                 'CreateKundeComponent.onSave: Validierungsfehler',
@@ -70,11 +62,9 @@ export class CreateKundeComponent implements OnInit {
         this.service
             .save(neuerKunde)
             .pipe(
-                // 1. Datensatz empfangen und danach implizites "unsubscribe"
                 first(),
                 tap(result => this.#setProps(result)),
             )
-            // asynchrone Funktionen nur bei subscribe, nicht bei tap
             .subscribe({ next: () => this.#navigateHome() });
     }
 
@@ -102,7 +92,6 @@ export class CreateKundeComponent implements OnInit {
         switch (statuscode) {
             case HttpStatusCode.UnprocessableEntity: {
                 const { cause } = err;
-                // TODO Aufbereitung der Fehlermeldung: u.a. Anfuehrungszeichen
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 this.errorMsg =
                     cause instanceof HttpErrorResponse

@@ -37,7 +37,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 // Ein Modul enthaelt logisch zusammengehoerige Funktionalitaet.
 // Exportierte Komponenten koennen bei einem importierenden Modul in dessen
 // Komponenten innerhalb deren Templates (= HTML-Fragmente) genutzt werden.
-// KundeModule ist ein "FeatureModule", das Features fuer Buecher bereitstellt
+// KundeModule ist ein "FeatureModule", das Features fuer Kunden bereitstellt
 @NgModule({
     imports: [
         CalendarModule.forRoot({
